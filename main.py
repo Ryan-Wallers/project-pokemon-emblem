@@ -45,9 +45,10 @@ pygame.quit()'''
 
 # Go go gadget copy and paste!
 # But like, not actually I just had to follow a guide please don't fail me
-# Guide is https://www.codersjungle.com/2025/01/27/creating-tile-based-games-with-pygame/
+# I'm like, 95% sure the majority of articles online are entirely AI generated
 
 import pygame
+import time
 
 # Initialize Pygame
 pygame.init()
@@ -76,17 +77,38 @@ tile_images = {
     2: wall_image,
 }
 
-# Define the tile types
-TILE_GRASS = 0
-TILE_WATER = 1
-TILE_WALL = 2
+'''Define the tile types
+GRASS = 0
+WATER = 1
+WALL = 2'''
 
 # Simple tile map (5x3)
+'''tile_map = [
+    [0, 0, 0, 1, 2],
+    [0, 1, 1, 1, 2],
+    [2, 1, 0, 0, 0],
+]'''
+# Simple tile map (10x10)
 tile_map = [
-    [TILE_GRASS, TILE_GRASS, TILE_GRASS, TILE_WATER, TILE_WALL],
-    [TILE_GRASS, TILE_WATER, TILE_WATER, TILE_WATER, TILE_WALL],
-    [TILE_WALL, TILE_GRASS, TILE_GRASS, TILE_GRASS, TILE_GRASS],
+    [0,0,0,1,2,1,1,0,1,0],
+    [0,0,0,1,2,1,0,0,0,0],
+    [0,0,1,0,0,0,0,0,1,1],
+    [2,2,2,0,0,0,1,1,1,1],
+    [0,1,1,0,0,2,1,1,1,0],
+    [0,1,0,0,0,2,1,1,0,0],
+    [0,1,0,0,0,2,2,1,1,0],
+    [0,1,1,0,0,0,0,2,2,2],
+    [0,1,0,0,0,0,0,0,0,0],
+    [0,0,1,0,0,1,1,1,1,0],
 ]
+
+
+def get_tile_type(x, y, tile_map):
+    """Return the type of tile at given coordinates."""
+    if x < len(tile_map[0]) and y < len(tile_map) and x >= 0 and y >= 0:
+        return tile_map[y][x]
+    else:
+        return 2
 
 # Function to draw the tile map
 def draw_tile_map(screen, tile_map, tile_images):
@@ -99,11 +121,40 @@ def draw_tile_map(screen, tile_map, tile_images):
             # Draw the corresponding tile image
             screen.blit(tile_images[tile_type], (tile_x, tile_y))
 
+def can_move_to(x, y, tile_map):
+    """Check if the player can move to the specified tile."""
+    tile_type = get_tile_type(x, y, tile_map)
+    return tile_type != 2  # Assuming 2 indicates an obstacle (wall)
+
+class Pokemon:
+    def __init__(self, x, y, speed):
+        self.x = x
+        self.y = y
+        self.speed = speed
+    def move(self, dx, dy, tile_map):
+        new_x = self.x + dx
+        new_y = self.y + dy
+        if can_move_to(new_x, new_y, tile_map):
+            self.x = new_x
+            self.y = new_y
+
+player = Pokemon(1, 1, 1)  # Start at tile (1, 1)
+
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_UP]:
+        player.move(0, -1, tile_map)
+    if keys[pygame.K_DOWN]:
+        player.move(0, 1, tile_map)
+    if keys[pygame.K_LEFT]:
+        player.move(-1, 0, tile_map)
+    if keys[pygame.K_RIGHT]:
+        player.move(1, 0, tile_map)
 
     # Clear the screen
     screen.fill((0, 0, 0))
@@ -111,8 +162,15 @@ while running:
     # Does what it says on the tin
     draw_tile_map(screen, tile_map, tile_images)
 
+    # Draw the player (for simplicity, we can represent the player as a rectangle)
+    player_rect = pygame.Rect(player.x * TILE_SIZE, player.y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
+    pygame.draw.rect(screen, (255, 0, 0), player_rect)  # Red square for the player
+
     # Update the display
     pygame.display.flip()
+
+    # Waits for a tenth of a second to prevent excessive inputs until a proper solution is found
+    time.sleep(1/10)
 
 # Quit Pygame
 pygame.quit()
