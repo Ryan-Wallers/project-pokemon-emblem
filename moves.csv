@@ -1,0 +1,33 @@
+Name,Type,Category,Power,Accuracy,Power Points,Contact
+tackle,normal,physical,40,100,35,yes
+echoed voice,normal,special,40,100,15,no
+flame charge,fire,physical,50,100,20,yes
+ember,fire,special,40,100,25,no
+water gun,water,special,40,100,30,no
+aqua jet,water,physical,40,100,20,yes
+thunder shock,electric,special,40,100,30,no
+nuzzle,electric,physical,20,100,20,yes
+leafage,grass,physical,40,10,15,no
+mega drain,grass,special,40,100,15,no
+ice shard,ice,physical,40,100,30,no
+powder snow,ice,special,40,100,25,no
+mach punch,fighting,physical,40,100,30,yes
+vacuum wave,fighting,special,40,100,30,no
+poison fang,poison,physical,50,100,15,yes
+acid,poison,special,40,100,30,no
+sand tomb,ground,physical,35,85,15,no
+mud shot,ground,special,55,95,15,no
+peck,flying,physical,35,100,35,yes
+gust,flying,special,40,100,35,no
+psybeam,psychic,special,65,100,20,no
+fury cutter,bug,physical,40,95,20,yes
+struggle bug,bug,special,50,100,20,no
+stone axe,rock,physical,65,90,15,yes
+astonish,ghost,physical,30,100,15,yes
+infernal parade,ghost,special,60,100,15,no
+dual chop,dragon,physical,40,90,15,yes
+twister,dragon,special,40,100,20,no
+pursuit,dark,physical,40,100,20,yes
+snarl,dark,special,55,95,15,no
+metal claw,steel,physical,50,95,35,yes
+draining kiss,fairy,special,50,100,10,yes
