@@ -27,10 +27,10 @@ pikachu;35;55;40;50;50;90;electric;none;0.4;6.0;mf
 raichu;60;90;55;90;80;110;electric;none;0.8;30.0;mf
 sandshrew;50;75;85;20;30;40;ground;none;0.6;12.0;mf
 sandslash;75;100;110;45;55;65;ground;none;1.0;29.5;mf
-nidoran;55;47;52;40;40;41;poison;none;0.4;7.0;f
+nidoranf;55;47;52;40;40;41;poison;none;0.4;7.0;f
 nidorina;70;62;67;55;55;56;poison;none;0.8;20.0;f
 nidoqueen;90;92;87;75;85;76;poison;ground;1.3;60.0;f
-nidoran?;46;57;40;40;40;50;poison;none;0.5;9.0;m
+nidoranm;46;57;40;40;40;50;poison;none;0.5;9.0;m
 nidorino;61;72;57;55;55;65;poison;none;0.9;19.5;m
 nidoking;81;102;77;85;75;85;poison;ground;1.4;62.0;m
 clefairy;70;45;48;60;65;35;fairy;none;0.6;7.5;mf
@@ -70,7 +70,7 @@ machamp;90;130;80;65;85;55;fighting;none;1.6;130.0;mf
 bellsprout;50;75;35;70;30;40;grass;poison;0.7;4.0;mf
 weepinbell;65;90;50;85;45;55;grass;poison;1.0;6.4;mf
 victreebel;80;105;65;100;70;70;grass;poison;1.7;15.5;mf
-tentacool ;40;40;35;50;100;70;water;poison ;0.9;45.5;mf
+tentacool;40;40;35;50;100;70;water;poison;0.9;45.5;mf
 tentacruel;80;70;65;80;120;100;water;poison;1.6;55.0;mf
 geodude;40;80;100;30;30;20;rock;ground;0.4;20.0;mf
 graveler;55;95;115;45;45;35;rock;ground;1.0;105.0;mf
@@ -81,7 +81,7 @@ slowpoke;90;65;65;40;40;15;water;psychic;1.2;36.0;mf
 slowbro;95;75;110;100;80;30;water;psychic;1.6;78.5;mf
 magnemite;25;35;70;95;55;45;electric;steel;0.3;6.0;n
 magneton;50;60;95;120;70;70;electric;steel;1.0;60.0;n
-farfetch�d;52;90;55;58;62;60;normal;flying;0.8;15.0;mf
+farfetch'd;52;90;55;58;62;60;normal;flying;0.8;15.0;mf
 doduo;35;85;45;35;35;75;normal;flying;1.4;39.2;mf
 dodrio;60;110;70;60;60;100;normal;flying;1.8;85.2;mf
 seel;65;45;55;45;70;45;water;none;1.1;90.0;mf
