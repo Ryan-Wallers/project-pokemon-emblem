@@ -214,7 +214,7 @@ def calcdamage(move, attacker, defender):
     else:
         stab = 1
     typ_bonus = 1
-    return (((((2*25)/5+2)*move.power*atk/dfs)/50+2)*stab*typ_bonus*random.randint(217,255))//255
+    return (int((((((2*25)/5+2)*move.power*atk/dfs)/50+2)*stab*typ_bonus*random.randint(217,255))//255), typ_bonus)
 
 
 
@@ -268,7 +268,11 @@ while game:
         print(f"P{first+1}'s {battle.field[first].name} used {battle.movechoice[first].name}!")
         time.sleep(1.5)
         if random.randint(1, 100) <= battle.movechoice[first].accuracy:
-            damage = calcdamage(battle.movechoice[first], battle.field[first], battle.field[second])
+            damage, effective = calcdamage(battle.movechoice[first], battle.field[first], battle.field[second])
+            if effective > 1:
+                print("It's super effective!")
+            elif effective < 1:
+                print("It's not very effective...")
             battle.field[second].hp -= damage
             print("It dealt",damage,"damage!")
         else:
@@ -294,7 +298,12 @@ while game:
             print(f"P{second+1}'s {battle.field[second].name} used {battle.movechoice[second].name}!")
             time.sleep(1.5)
             if random.randint(1, 100) <= battle.movechoice[second].accuracy:
-                damage = calcdamage(battle.movechoice[second], battle.field[second], battle.field[first])
+                damage, effective = calcdamage(battle.movechoice[second], battle.field[second], battle.field[first])
+                if effective > 1:
+                    print("It's super effective!")
+                elif effective < 1:
+                    print("It's not very effective...")
+                battle.field[second].hp -= damage
                 print("It dealt",damage,"damage!")
             else:
                 print("But it missed!")
