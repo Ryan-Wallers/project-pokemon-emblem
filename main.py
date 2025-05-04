@@ -234,7 +234,8 @@ def calcdamage(move, attacker, defender):
         stab = 1.5
     else:
         stab = 1
-    typ_bonus = 1
+    typ_bonus = typedictionary[move.type][typedictionary[defender.type_primary][0]] * typedictionary[move.type][typedictionary[defender.type_secondary][0]]
+
     return (int((((((2*25)/5+2)*move.power*atk/dfs)/50+2)*stab*typ_bonus*random.randint(217,255))//255), typ_bonus)
 
 
